@@ -1,0 +1,15 @@
+#title {
+    font-family: "Oleo Script";
+    font-size: 25px;
+}
+
+body {
+    background-color: #DEEEFE;
+}
+
+#login-box {
+    margin-top: 10%;
+    background-color: #DECFC3;
+    border-radius: 20px;
+    padding-bottom: 20px;
+}
