@@ -20,6 +20,7 @@
   <nav>
     <div class="nav-wrapper" style="background-color: #FC1EC4">
       <a href="header.php" class="brand-logo"><img src="../imgs/Logotipo_Corporación_Universitaria_Americana_(big).png" height="60px"></a>
+      <a class="grey-text text-lighten-4 right" href="LogOut.php"><i class="material-icons">Log-Out</i></a>
       <ul class="right hide-on-med-and-down">
         <li>
           <a class="dropdown-trigger" data-target='dropdown1'><i class="material-icons">Administradores</i></a>

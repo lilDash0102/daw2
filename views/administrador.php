@@ -1,14 +1,36 @@
 <?php
 include 'header.php';
+
 ?>
 <h1 id="title" class="center" style="font-size: 35px;">Administrador</h1>
+<?php
+    session_start();
+    if (isset($_SESSION['error'])) {
+    ?>
+        <div style="background-color: red; text-align: center; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" role="alert">
+            <?php echo $_SESSION['error'];  ?>
+        </div>
+    <?php
+    unset($_SESSION['error']);
+    }
+    ?>
+    <?php
+    if (isset($_SESSION['success'])) {        
+    ?>
+        <div style="background-color: green; text-align: center; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" role="alert">
+            <?php echo $_SESSION['success'];  ?>
+        </div>
+    <?php
+    unset($_SESSION['success']);
+    }
+    ?>
 <?php
 if (isset($_GET['add'])) {
     unset($_GET['add']);
 ?>
     <div style="padding: 10px 40px; margin-top: 20px; border-radius: 20px" class="container z-depth-1">
         <h1 id="title" class="center" style="font-size: 35px;">Crear</h1>
-        <form action="../AdminController.php" method="POST">
+        <form action="../controllers/AdminController.php" method="POST">
             <div class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
@@ -16,25 +38,25 @@ if (isset($_GET['add'])) {
                         <label for="first_name">Nombres</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
+                        <input id="last_name" type="text" name="nickname"  class="validate">
                         <label for="last_name">Apodo</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
+                        <input id="email" type="email" name="email" class="validate">
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
+                        <input id="password" type="password" name="password" class="validate">
                         <label for="password">Password</label>
                     </div>
                 </div>
 
                 <button class="btn waves-effect waves-light" style="margin-left: 50%;
-  transform: translateX(-50%);" type="submit" name="action">Crear
+  transform: translateX(-50%);" type="submit" name="crear">Crear
                     <i class="material-icons right"></i>
                 </button>
             </div>
@@ -90,6 +112,7 @@ if (isset($_GET['update'])) {
 if (isset($_GET['list'])) {
     unset($_GET['list']);
 ?>
+<div class="container">
     <table class="striped">
         <thead>
           <tr>
@@ -105,18 +128,12 @@ if (isset($_GET['list'])) {
             <td>Eclair</td>
             <td>$0.87</td>
           </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-          </tr>
+          <?php
+             
+          ?>
         </tbody>
       </table>
+      </div>
 <?php
 }
 ?>
